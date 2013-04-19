@@ -1,0 +1,15 @@
+--ignore-dir=metric_fu
+--sort-files
+
+--type-set=coffee=.coffee
+--type-set=haml=.haml
+--type-set=sass=.sass,.scss
+
+--ignore-dir=local
+--ignore-dir=vendor
+--ignore-dir=log
+--ignore-dir=tmp
+--ignore-dir=doc
+--ignore-dir=coverage
+--ignore-dir=spec/fixtures
+--ignore-dir=bin
