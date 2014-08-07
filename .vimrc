@@ -25,6 +25,7 @@ Bundle 'tpope/vim-rails.git'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-unimpaired'
 Bundle 'tpope/vim-vividchalk'
+Bundle 'tpope/vim-repeat'
 Bundle 'tsaleh/vim-matchit'
 Bundle 'vim-scripts/ZoomWin'
 Bundle 'duff/vim-bufonly'
@@ -32,9 +33,15 @@ Bundle 'mattn/gist-vim'
 Bundle 'mattn/webapi-vim'
 Bundle 'nono/vim-handlebars'
 Bundle 'altercation/vim-colors-solarized'
-Bundle 'myusuf3/numbers.vim'
+" Bundle 'myusuf3/numbers.vim'
 Bundle 'tpope/vim-bundler'
 Bundle 'airblade/vim-gitgutter'
+Bundle 'kchmck/vim-coffee-script'
+Bundle 'scrooloose/syntastic'
+Bundle 'heartsentwined/vim-emblem'
+
+" Objective C Development
+Bundle 'eraserhd/vim-ios'
 
 filetype plugin indent on     " required!
 
@@ -83,6 +90,7 @@ iabbrev bpry      require 'pry'; binding.pry
 
 autocmd CursorHold,BufWritePost,BufReadPost,BufLeave *
         \ if isdirectory(expand("<amatch>:h")) | let &swapfile = &modified | endif
+au BufRead,BufNewFile *.hamlc set ft=haml
 
 map <C-e> :NERDTreeToggle<CR>:NERDTreeMirror<CR>
 map zz <Esc>:Zoom<CR>
@@ -92,5 +100,51 @@ map <Leader>] :tabnext<CR>
 nnoremap <silent> <C-K> :%s/\s\+$//e<CR><C-K>
 call togglebg#map("<F5>")
 
-" Dru's request
-imap jj <Esc>
+"Rename tabs to show tab# and # of viewports
+if exists("+showtabline")
+  function! MyTabLine()
+    let s = ''
+    let wn = ''
+    let t = tabpagenr()
+    let i = 1
+    while i <= tabpagenr('$')
+      let buflist = tabpagebuflist(i)
+      let winnr = tabpagewinnr(i)
+      let s .= '%' . i . 'T'
+      let s .= (i == t ? '%1*' : '%2*')
+      let s .= ' '
+      let wn = tabpagewinnr(i,'$')
+
+      let s .= (i== t ? '%#TabNumSel#' : '%#TabNum#')
+      let s .= i
+      if tabpagewinnr(i,'$') > 1
+        let s .= '.'
+        let s .= (i== t ? '%#TabWinNumSel#' : '%#TabWinNum#')
+        let s .= (tabpagewinnr(i,'$') > 1 ? wn : '')
+      end
+
+      let s .= ' %*'
+      let s .= (i == t ? '%#TabLineSel#' : '%#TabLine#')
+      let bufnr = buflist[winnr - 1]
+      let file = bufname(bufnr)
+      let buftype = getbufvar(bufnr, 'buftype')
+      if buftype == 'nofile'
+        if file =~ '\/.'
+          let file = substitute(file, '.*\/\ze.', '', '')
+        endif
+      else
+        let file = fnamemodify(file, ':p:t')
+      endif
+      if file == ''
+        let file = '[No Name]'
+      endif
+      let s .= file
+      let s .= (i == t ? '%m' : '')
+      let i = i + 1
+    endwhile
+    let s .= '%T%#TabLineFill#%='
+    return s
+  endfunction
+  set stal=2
+  set tabline=%!MyTabLine()
+endif

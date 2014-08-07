@@ -3,6 +3,8 @@
 
 --type-set=coffee=.coffee
 --type-set=haml=.haml
+--type-set=hamlc=.hamlc
+--type-set=jbuilder=.jbuilder
 --type-set=sass=.sass,.scss
 
 --ignore-dir=local
