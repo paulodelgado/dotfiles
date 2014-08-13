@@ -2,47 +2,48 @@ set nocompatible               " be iMproved
 set nofoldenable
 filetype off                   " required!
 
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
 " let Vundle manage Vundle
 " required! 
-Bundle 'gmarik/vundle'
+Plugin 'gmarik/vundle'
 
 " My Bundles here:
 " original repos on github
-Bundle 'Lokaltog/vim-easymotion'
-Bundle 'jgdavey/tslime.vim'
-Bundle 'jgdavey/vim-turbux'
-Bundle 'kien/ctrlp.vim'
-Bundle 'mileszs/ack.vim'
-Bundle 'scrooloose/nerdtree'
-Bundle 'tpope/vim-commentary'
-Bundle 'tpope/vim-endwise'
-Bundle 'tpope/vim-fugitive'
-Bundle 'tpope/vim-haml'
-Bundle 'tpope/vim-rails.git'
-Bundle 'tpope/vim-surround'
-Bundle 'tpope/vim-unimpaired'
-Bundle 'tpope/vim-vividchalk'
-Bundle 'tpope/vim-repeat'
-Bundle 'tsaleh/vim-matchit'
-Bundle 'vim-scripts/ZoomWin'
-Bundle 'duff/vim-bufonly'
-Bundle 'mattn/gist-vim'
-Bundle 'mattn/webapi-vim'
-Bundle 'nono/vim-handlebars'
-Bundle 'altercation/vim-colors-solarized'
+Plugin 'Lokaltog/vim-easymotion'
+Plugin 'jgdavey/tslime.vim'
+Plugin 'jgdavey/vim-turbux'
+Plugin 'kien/ctrlp.vim'
+Plugin 'mileszs/ack.vim'
+Plugin 'scrooloose/nerdtree'
+Plugin 'tpope/vim-commentary'
+Plugin 'tpope/vim-endwise'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-haml'
+Plugin 'tpope/vim-rails.git'
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-unimpaired'
+Plugin 'tpope/vim-vividchalk'
+Plugin 'tpope/vim-repeat'
+Plugin 'tsaleh/vim-matchit'
+Plugin 'vim-scripts/ZoomWin'
+Plugin 'duff/vim-bufonly'
+Plugin 'mattn/gist-vim'
+Plugin 'mattn/webapi-vim'
+Plugin 'nono/vim-handlebars'
+Plugin 'altercation/vim-colors-solarized'
 " Bundle 'myusuf3/numbers.vim'
-Bundle 'tpope/vim-bundler'
-Bundle 'airblade/vim-gitgutter'
-Bundle 'kchmck/vim-coffee-script'
-Bundle 'scrooloose/syntastic'
-Bundle 'heartsentwined/vim-emblem'
+Plugin 'tpope/vim-bundler'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'kchmck/vim-coffee-script'
+Plugin 'scrooloose/syntastic'
+Plugin 'heartsentwined/vim-emblem'
 
 " Objective C Development
-Bundle 'eraserhd/vim-ios'
+Plugin 'eraserhd/vim-ios'
 
+call vundle#end()
 filetype plugin indent on     " required!
 
 function! HTry(function, ...)

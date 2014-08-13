@@ -18,5 +18,5 @@ alias sc='rails console'
 alias ss='rails server'
 alias rc='rails c'
 alias st='git status'
-alias vundle='vim +BundleInstall +qall'
+alias vundle='vim +PluginInstall +qall'
 
