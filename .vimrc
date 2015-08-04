@@ -99,6 +99,7 @@ map <Leader>[ :tabprevious<CR>
 map <Leader>] :tabnext<CR>
 
 nnoremap <silent> <C-K> :%s/\s\+$//e<CR><C-K>
+nnoremap <leader>. :CtrlPTag<cr>
 call togglebg#map("<F5>")
 
 "Rename tabs to show tab# and # of viewports
@@ -149,3 +150,5 @@ if exists("+showtabline")
   set stal=2
   set tabline=%!MyTabLine()
 endif
+
+set clipboard=unnamed
