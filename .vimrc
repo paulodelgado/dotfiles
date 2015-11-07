@@ -24,18 +24,14 @@ Plugin 'tpope/vim-haml'
 Plugin 'tpope/vim-rails.git'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-unimpaired'
-Plugin 'tpope/vim-vividchalk'
 Plugin 'tpope/vim-repeat'
-Plugin 'tsaleh/vim-matchit'
 Plugin 'vim-scripts/ZoomWin'
 Plugin 'duff/vim-bufonly'
 Plugin 'mattn/gist-vim'
 Plugin 'mattn/webapi-vim'
 Plugin 'nono/vim-handlebars'
 Plugin 'altercation/vim-colors-solarized'
-" Bundle 'myusuf3/numbers.vim'
 Plugin 'tpope/vim-bundler'
-Plugin 'airblade/vim-gitgutter'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'scrooloose/syntastic'
 Plugin 'heartsentwined/vim-emblem'
@@ -57,7 +53,7 @@ endfunction
 " Paulo's setup
 syntax on
 syntax enable
-set background=dark
+set background=light
 colorscheme solarized
 set guifont=Monaco:h14
 set guioptions-=T guioptions-=e guioptions-=L guioptions-=r

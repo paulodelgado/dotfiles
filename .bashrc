@@ -32,3 +32,5 @@ PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 export IRCNICK="pdelgado"
 export IRCNAME="nam"
 export IRCSERVER="irc.freenode.net"
+
+. "$HOME/.bashrc.local"
