@@ -1,6 +1,5 @@
 #!/bin/bash
 
-export CC=/usr/bin/gcc
 export EDITOR='/usr/bin/vim'
 export SVN_EDITOR='/usr/bin/vim'
 export GIT_EDITOR='/usr/bin/vim'

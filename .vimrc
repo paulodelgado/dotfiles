@@ -17,6 +17,7 @@ Plugin 'jgdavey/vim-turbux'
 Plugin 'kien/ctrlp.vim'
 Plugin 'mileszs/ack.vim'
 Plugin 'scrooloose/nerdtree'
+Plugin 'jistr/vim-nerdtree-tabs'
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-endwise'
 Plugin 'tpope/vim-fugitive'
@@ -53,7 +54,7 @@ endfunction
 " Paulo's setup
 syntax on
 syntax enable
-set background=light
+set background=dark
 colorscheme solarized
 set guifont=Monaco:h14
 set guioptions-=T guioptions-=e guioptions-=L guioptions-=r
@@ -88,8 +89,10 @@ iabbrev bpry      require 'pry'; binding.pry
 autocmd CursorHold,BufWritePost,BufReadPost,BufLeave *
         \ if isdirectory(expand("<amatch>:h")) | let &swapfile = &modified | endif
 au BufRead,BufNewFile *.hamlc set ft=haml
+au BufRead,BufNewFile *.rabl setf ruby
 
 map <C-e> :NERDTreeToggle<CR>:NERDTreeMirror<CR>
+map <Leader>n <plug>NERDTreeTabsToggle<CR>
 map zz <Esc>:Zoom<CR>
 map <Leader>[ :tabprevious<CR>
 map <Leader>] :tabnext<CR>
