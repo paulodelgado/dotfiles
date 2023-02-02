@@ -36,6 +36,9 @@ Plugin 'tpope/vim-bundler'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'scrooloose/syntastic'
 Plugin 'heartsentwined/vim-emblem'
+Plugin 'slim-template/vim-slim.git'
+Plugin 'AndrewRadev/vim-eco'
+Plugin 'sirtaj/vim-openscad'
 
 " Objective C Development
 Plugin 'eraserhd/vim-ios'
