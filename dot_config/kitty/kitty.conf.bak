@@ -1,0 +1,6 @@
+include dracula.conf
+font_family FiraCodeNerd
+
+hide_window_decorations yes
+background_opacity 0.98
+dynamic_background_opacity yes
