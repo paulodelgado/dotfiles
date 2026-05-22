@@ -54,7 +54,7 @@ function! HTry(function, ...)
   endif
 endfunction
 
-" Paulo's setup
+" My setup
 syntax on
 syntax enable
 set background=dark

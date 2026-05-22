@@ -10,7 +10,7 @@ export TMUX_POWERLINE_DEBUG_MODE_ENABLED="false"
 export TMUX_POWERLINE_PATCHED_FONT_IN_USE="true"
 
 # The theme to use.
-export TMUX_POWERLINE_THEME="pdd"
+export TMUX_POWERLINE_THEME="default"
 # Overlay directory to look for themes. There you can put your own themes outside the repo. Fallback will still be the "themes" directory in the repo.
 export TMUX_POWERLINE_DIR_USER_THEMES="${XDG_CONFIG_HOME:-$HOME/.config}/tmux-powerline/themes"
 # Overlay directory to look for segments. There you can put your own segments outside the repo. Fallback will still be the "segments" directory in the repo.
@@ -58,7 +58,7 @@ TMUX_POWERLINE_SEG_AIR_OPEN_WEATHER_API_KEY=""
 # }
 
 # battery.sh {
-# How to display battery remaining. Can be {percentage, cute}.
+# How to display battery remaining. Can be {percentage, cute, hearts}.
 export TMUX_POWERLINE_SEG_BATTERY_TYPE="percentage"
 # How may hearts to show if cute indicators are used.
 export TMUX_POWERLINE_SEG_BATTERY_NUM_HEARTS="5"
@@ -78,6 +78,19 @@ export TMUX_POWERLINE_SEG_DATE_FORMAT="%F"
 # disk_usage.sh {
 # Filesystem to retrieve disk space information. Any from the filesystems available (run "df | awk '{print }'" to check them).
 export TMUX_POWERLINE_SEG_DISK_USAGE_FILESYSTEM="/"
+# }
+
+# dropbox_status.sh {
+# The Dropbox glyph to use
+export TMUX_POWERLINE_SEG_DROPBOX_GLYPH=""
+# Replace 'Uploading' in the status
+export TMUX_POWERLINE_SEG_DROPBOX_UPLOAD_GLYPH=""
+# Replace 'Downloading' in the status
+export TMUX_POWERLINE_SEG_DROPBOX_DOWNLOAD_GLYPH=""
+# Replace 'Indexing' in the status
+export TMUX_POWERLINE_SEG_DROPBOX_INDEX_GLYPH=""
+# Replace 'Syncing' in the status
+export TMUX_POWERLINE_SEG_DROPBOX_SYNC_GLYPH=""
 # }
 
 # earthquake.sh {
@@ -100,6 +113,34 @@ export TMUX_POWERLINE_SEG_EARTHQUAKE_MIN_MAGNITUDE="3"
 # gcalcli.sh {
 # gcalcli uses 24hr time format by default - if you want to see 12hr time format, set TMUX_POWERLINE_SEG_GCALCLI_MILITARY_TIME_DEFAULT to 0
 export TMUX_POWERLINE_SEG_GCALCLI_24HR_TIME_FORMAT="1"
+# }
+
+# github_notifications.sh {
+# Github token (https://github.com/settings/tokens) with at least "notifications" scope
+export TMUX_POWERLINE_SEG_GITHUB_NOTIFICATIONS_TOKEN=""
+# Include available notification reasons (https://docs.github.com/en/rest/activity/notifications?apiVersion=2022-11-28#about-notification-reasons),
+# in the format "REASON:SEPARATOR"
+# export TMUX_POWERLINE_SEG_GITHUB_NOTIFICATIONS_REASONS="approval_requested:-󰴄 |assign:-󰎔 |author:-󰔗 |comment:- |ci_activity:-󰙨 |invitation:- |manual:-󱥃 |mention:- |review_requested:- |security_alert:-󰒃 |state_change:-󱇯 |subscribed:- |team_mention:- "
+# Or if you don't like so many symbols, try the abbreviation variant
+# export TMUX_POWERLINE_SEG_GITHUB_NOTIFICATIONS_REASONS="approval_requested:areq|assign:as|author:au|comment:co|ci_activity:ci|invitation:in|manual:ma|mention:me|review_requested:rreq|security_alert:sec|state_change:st|subscribed:sub|team_mention:team"
+# Use symbol mode (ignored if you set TMUX_POWERLINE_SEG_GITHUB_NOTIFICATIONS_REASONS yourself)
+# export TMUX_POWERLINE_SEG_GITHUB_NOTIFICATIONS_SYMBOL_MODE="yes"
+# Summarize all notifications
+# export TMUX_POWERLINE_SEG_GITHUB_NOTIFICATIONS_SUMMARIZE="no"
+# Hide if no notifications
+# export TMUX_POWERLINE_SEG_GITHUB_NOTIFICATIONS_HIDE_NO_NOTIFICATIONS="yes"
+# Only show new notifications since date (default: today) (takes up to UPDATE_INTERVAL time to take effect)
+# export TMUX_POWERLINE_SEG_GITHUB_NOTIFICATIONS_SINCE="$(date +%Y-%m-%dT00:00:00Z)"
+# Enable show only notifications since date (takes up to UPDATE_INTERVAL time to take effect)
+# export TMUX_POWERLINE_SEG_GITHUB_NOTIFICATIONS_SINCE_ENABLE="no"
+# Maximum notifications to retreive per page (upstream github default per_page, 50)
+# export TMUX_POWERLINE_SEG_GITHUB_NOTIFICATIONS_PER_PAGE="50"
+# Maximum pages to retreive
+# export TMUX_POWERLINE_SEG_GITHUB_NOTIFICATIONS_MAX_PAGES="10"
+# Update interval to pull latest state from github api
+# export TMUX_POWERLINE_SEG_GITHUB_NOTIFICATIONS_UPDATE_INTERVAL="60"
+# Enable Test Mode (to test how the segment will look like when you have notifications for all types/reasons)
+# export TMUX_POWERLINE_SEG_GITHUB_NOTIFICATIONS_TEST_MODE="no"
 # }
 
 # hostname.sh {
@@ -159,7 +200,7 @@ export TMUX_POWERLINE_SEG_MAILCOUNT_MAILBOX_TYPE=""
 # Enter your Gmail username here WITH OUT @gmail.com.( OR @domain)
 export TMUX_POWERLINE_SEG_MAILCOUNT_GMAIL_USERNAME=""
 # Google password. Recomenned to use application specific password (https://accounts.google.com/b/0/IssuedAuthSubTokens) Leave this empty to get password from OS X keychain.
-# For OSX users : MAKE SURE that you add a key to the keychain in the format as follows
+# For macOS users : MAKE SURE that you add a key to the keychain in the format as follows
 # Keychain Item name : http://<value-you-fill-in-server-variable-below>
 # Account name : <username-below>@<server-below>
 # Password : Your password ( Once again, try to use 2 step-verification and application-specific password)
@@ -172,15 +213,15 @@ export TMUX_POWERLINE_SEG_MAILCOUNT_GMAIL_INTERVAL="5"
 
 ## Maildir
 # Path to the maildir to check.
-export TMUX_POWERLINE_SEG_MAILCOUNT_MAILDIR_INBOX="/home/paulo/.mail/inbox/new"
+export TMUX_POWERLINE_SEG_MAILCOUNT_MAILDIR_INBOX="~/.mail/inbox/new"
 
 ## mbox
 # Path to the mbox to check.
-export TMUX_POWERLINE_SEG_MAILCOUNT_MBOX_INBOX="/var/spool/mail/paulo"
+export TMUX_POWERLINE_SEG_MAILCOUNT_MBOX_INBOX="/var/spool/mail/$USER"
 
 ## mailcheck
 # Optional path to mailcheckrc
-export TMUX_POWERLINE_SEG_MAILCOUNT_MAILCHECKRC="/home/paulo/.mailcheckrc"
+export TMUX_POWERLINE_SEG_MAILCOUNT_MAILCHECKRC="~/.mailcheckrc"
 # }
 
 # mode_indicator.sh {
@@ -210,7 +251,7 @@ export TMUX_POWERLINE_SEG_MODE_INDICATOR_SEPARATOR_TEXT=" • "
 # }
 
 # now_playing.sh {
-# Music player to use. Can be any of {audacious, banshee, cmus, apple_music, itunes, lastfm, plexamp, mocp, mpd, mpd_simple, pithos, playerctl, rdio, rhythmbox, spotify, spotify_wine, file}.
+# Music player to use. Can be any of {audacious, banshee, cmus, apple_music, itunes, lastfm, plexamp, mocp, mpd, mpd_simple, pithos, playerctl, rdio, rhythmbox, spotify, file}.
 export TMUX_POWERLINE_SEG_NOW_PLAYING_MUSIC_PLAYER="spotify"
 # File to be read in case the song is being read from a file
 export TMUX_POWERLINE_SEG_NOW_PLAYING_FILE_NAME=""
@@ -227,7 +268,7 @@ export TMUX_POWERLINE_SEG_NOW_PLAYING_ROLL_SPEED="2"
 # If set to 'true', 'yes', 'on' or '1', played tracks will be logged to a file.
 # export TMUX_POWERLINE_SEG_NOW_PLAYING_TRACK_LOG_ENABLE="false"
 # If enabled, log played tracks to the following file:
-# export TMUX_POWERLINE_SEG_NOW_PLAYING_TRACK_LOG_FILEPATH="/home/paulo/.now_playing.log"
+# export TMUX_POWERLINE_SEG_NOW_PLAYING_TRACK_LOG_FILEPATH="~/.now_playing.log"
 # Maximum number of logged song entries. Set to "unlimited" for unlimited entries.
 # export TMUX_POWERLINE_SEG_NOW_PLAYING_TRACK_LOG_MAX_ENTRIES="100"
 
@@ -372,30 +413,65 @@ export TMUX_POWERLINE_SEG_VCS_BRANCH_SVN_SYMBOL_COLOUR="220"
 # }
 
 # wan_ip.sh {
-# Symbol for WAN IP
-# export TMUX_POWERLINE_SEG_WAN_IP_SYMBOL="ⓦ "
-# Symbol colour for WAN IP
-# export TMUX_POWERLINE_SEG_WAN_IP_SYMBOL_COLOUR="255"
+# 	Symbol for WAN IP
+# 	export TMUX_POWERLINE_SEG_WAN_IP_SYMBOL="ⓦ "
+# 	Symbol colour for WAN IP
+# 	export TMUX_POWERLINE_SEG_WAN_IP_SYMBOL_COLOUR="255"
 # }
 
 # weather.sh {
-# The data provider to use. Currently only "yahoo" is supported.
+# The data provider to use. Currently only "yrno" is supported.
 export TMUX_POWERLINE_SEG_WEATHER_DATA_PROVIDER="yrno"
 # What unit to use. Can be any of {c,f,k}.
 export TMUX_POWERLINE_SEG_WEATHER_UNIT="c"
 # How often to update the weather in seconds.
 export TMUX_POWERLINE_SEG_WEATHER_UPDATE_PERIOD="600"
-# Name of GNU grep binary if in PATH, or path to it.
-export TMUX_POWERLINE_SEG_WEATHER_GREP="grep"
-# Location of the JSON parser, jq
-export TMUX_POWERLINE_SEG_WEATHER_JSON="jq"
+# How often to update the weather location in seconds (this is only used when latitude and longitude settings are set to "auto")
+export TMUX_POWERLINE_SEG_WEATHER_LOCATION_UPDATE_PERIOD="86400"
 # Your location
 # Latitude and Longtitude for use with yr.no
-TMUX_POWERLINE_SEG_WEATHER_LAT=""
-TMUX_POWERLINE_SEG_WEATHER_LON=""
+# Set both to "auto" to detect automatically based on your IP address, or set them manually
+export TMUX_POWERLINE_SEG_WEATHER_LAT="auto"
+export TMUX_POWERLINE_SEG_WEATHER_LON="auto"
 # }
 
 # xkb_layout.sh {
 # Keyboard icon
 export TMUX_POWERLINE_SEG_XKB_LAYOUT_ICON="⌨ "
 # }
+
+TMUX_POWERLINE_LEFT_STATUS_SEGMENTS=(
+  "tmux_session_info 148 234"
+  "hostname 33 0"
+  #"mode_indicator 165 0"
+  #"ifstat 30 255"
+  #"ifstat_sys 30 255"
+  # "lan_ip 24 255 ${TMUX_POWERLINE_SEPARATOR_RIGHT_THIN}"
+  #"vpn 24 255 ${TMUX_POWERLINE_SEPARATOR_RIGHT_THIN}"
+  # "wan_ip 24 255"
+  # "vcs_branch 29 88"
+  #"vcs_compare 60 255"
+  #"vcs_staged 64 255"
+  #"vcs_modified 9 255"
+  #"vcs_others 245 0"
+)
+
+TMUX_POWERLINE_RIGHT_STATUS_SEGMENTS=(
+  #"earthquake 3 0"
+  # "pwd 89 211"
+  #"macos_notification_count 29 255"
+  #"mailcount 9 255"
+  # "now_playing 234 37"
+  #"cpu 240 136"
+  "load 237 167"
+  #"tmux_mem_cpu_load 234 136"
+  # "battery 137 127"
+  #"air ${TMUX_POWERLINE_SEG_AIR_COLOR} 255"
+  "weather 37 255"
+  #"rainbarf 0 ${TMUX_POWERLINE_DEFAULT_FOREGROUND_COLOR}"
+  #"xkb_layout 125 117"
+  "date_day 235 136"
+  "date 235 136 ${TMUX_POWERLINE_SEPARATOR_LEFT_THIN}"
+  "time 235 136 ${TMUX_POWERLINE_SEPARATOR_LEFT_THIN}"
+  #"utc_time 235 136 ${TMUX_POWERLINE_SEPARATOR_LEFT_THIN}"
+)

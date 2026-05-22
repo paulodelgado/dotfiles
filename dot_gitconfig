@@ -21,7 +21,7 @@
 	ui = auto
 [core]
 	excludesfile = ~/.cvsignore
-	editor = vim
+	editor = nvim
 	whitespace = warn
 	quotepath = false
 [github]

@@ -1,4 +1,4 @@
 return {
-	"slim-template/vim-slim",  -- Syntax highlighting for VIM
-	ft = "slim",
+  "slim-template/vim-slim", -- Syntax highlighting for VIM
+  ft = "slim",
 }
