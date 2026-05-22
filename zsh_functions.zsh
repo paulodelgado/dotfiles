@@ -1,4 +1,3 @@
-# v2 via Gemini.
 code() {
   # 1. Project selection logic
   if [ -z "$1" ]; then
@@ -39,11 +38,13 @@ code() {
     tmux select-window -t "${PROJECT_NAME}:code"
   fi
 
+  kitten @ set-tab-title "$CURRENT_PROJECT"
+
   # 3. Attach
   tmux attach-session -t "$PROJECT_NAME"
 }
 
-zcode() {
+wh() {
   CURRENT_PROJECT=${PWD##*/}
   # echo $CURRENT_PROJECT
   # return
@@ -62,6 +63,8 @@ zcode() {
     # Ensure we are focused on the 'code' window where nvim is running
     tmux select-window -t "${CURRENT_PROJECT}:code"
   fi
+
+  kitten @ set-tab-title "$CURRENT_PROJECT"
 
   # 3. Attach
   tmux attach-session -t "$CURRENT_PROJECT"
@@ -117,4 +120,3 @@ prune_old_git_branches() {
   echo "------------------------------------------------"
   echo "Branch pruning complete!"
 }
-
