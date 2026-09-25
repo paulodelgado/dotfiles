@@ -1,11 +1,10 @@
 # My stuff
 alias ls='ls -G'
-alias tags='ctags -R --languages=ruby'
 alias gap='git add -p'
 alias gc='git commit -v'
 alias gca='git commit -v -a'
 alias gd='git diff'
-alias gpr='git pull --rebase && ctags -R'
+alias gpr='git pull --rebase'
 alias grep='grep --color'
 alias grh='git reset --hard'
 alias gst='git status'

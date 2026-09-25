@@ -37,3 +37,7 @@
 [user]
 	email = paulo@paulodelgado.com
 	name = Paulo Delgado
+[credential "https://git.heroku.com"]
+	helper = !heroku git:credentials
+[init]
+	defaultBranch = main
