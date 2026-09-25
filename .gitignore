@@ -9,3 +9,9 @@ dot_config/kitty/dank-theme.conf
 dot_config/kitty/dank-tabs.conf
 dot_config/DankMaterialShell/firefox.css
 dot_config/DankMaterialShell/zen.css
+
+# DankMaterialShell runtime markers and per-machine plugin config
+# (install.sh creates plugin_settings.json from plugin_settings.example.json)
+dot_config/DankMaterialShell/.changelog-*
+dot_config/DankMaterialShell/.firstlaunch
+dot_config/DankMaterialShell/plugin_settings.json

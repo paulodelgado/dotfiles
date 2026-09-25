@@ -1,0 +1,28 @@
+Deep Sage — Slack sidebar themes
+================================
+Derived from theme.json in this directory (same palette as the nvim
+"deepsage" colorscheme and the cava gradient).
+
+Paste into Slack: Preferences -> Themes -> scroll to the bottom ->
+paste into the "copy and paste a theme" box. Recent desktop clients take
+all 10 values; older ones take the first 8 and ignore the rest.
+
+Slot order:
+  1 Column BG        6 Text Color
+  2 Menu BG Hover    7 Active Presence
+  3 Active Item      8 Mention Badge
+  4 Active Item Text 9 Top Nav BG
+  5 Hover Item      10 Top Nav Text
+
+Dark (flavor "sage" + "deep" accent) — pair with Slack appearance: Dark
+#121915,#1E2922,#3A4F3C,#DCE6DF,#1B251F,#D7E2D9,#8BBF8A,#C85C55,#1B251F,#D7E2D9
+
+  Mention badge is #C85C55 rather than the theme's error #E07A7A so that
+  Slack's white badge text stays legible (4.1:1 instead of 2.9:1). Swap in
+  #E07A7A for a more vivid badge at the cost of that contrast.
+
+Light (flavor "sage-light" + "bright" accent) — pair with appearance: Light
+#EEF3EE,#E3E9E3,#C3D3C2,#19231C,#E1E9E2,#1D2820,#4D7A4F,#C4453F,#E1E9E2,#1D2820
+
+Note: a Slack custom theme only recolors the sidebar and top nav; the
+message pane follows Slack's own light/dark appearance setting.

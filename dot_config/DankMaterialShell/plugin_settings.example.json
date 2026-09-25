@@ -1,0 +1,19 @@
+{
+  "worldClockMulti": {
+    "enabled": true,
+    "timezones": [],
+    "showAll": true,
+    "use24h": true,
+    "cycleInterval": 16
+  },
+  "homeAssistantMonitor": {
+    "enabled": true,
+    "hassUrl": "",
+    "hassTokenPath": "",
+    "hassToken": "",
+    "showAttributes": true,
+    "showButtonsOnStatusBar": true,
+    "pinnedEntities": [],
+    "entityVisibility": {}
+  }
+}

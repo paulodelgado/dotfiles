@@ -62,6 +62,30 @@ for f in dot_config/niri/dms/outputs.kdl dot_config/niri/dms/colors.kdl; do
   fi
 done
 
+# Submodules (e.g. the DMS Home Assistant plugin)
+echo "update   git submodules"
+run git -C "$REPO" submodule update --init
+
+# DMS plugin settings are per-machine (they hold the Home Assistant address),
+# so they're gitignored and seeded from the committed example.
+PLUGIN_SETTINGS="$REPO/dot_config/DankMaterialShell/plugin_settings.json"
+if [[ -e "$PLUGIN_SETTINGS" ]]; then
+  echo "ok       $PLUGIN_SETTINGS"
+else
+  echo "create   $PLUGIN_SETTINGS (from plugin_settings.example.json)"
+  hass_url=""
+  if (( ! DRY_RUN )) && [[ -t 0 ]]; then
+    read -rp "         Home Assistant URL (blank to skip): " hass_url
+  fi
+  if (( ! DRY_RUN )); then
+    jq --arg url "$hass_url" --arg token "$HOME/.home-assistant-token" \
+      '.homeAssistantMonitor.hassUrl = $url | .homeAssistantMonitor.hassTokenPath = $token' \
+      "$REPO/dot_config/DankMaterialShell/plugin_settings.example.json" > "$PLUGIN_SETTINGS"
+  fi
+  echo "         put your Home Assistant token in ~/.home-assistant-token;"
+  echo "         world clock timezones are set in the DMS settings UI"
+fi
+
 # Shell functions and aliases are sourced from ~/.zshrc, not linked
 ZSHRC="$HOME/.zshrc"
 for f in zsh_functions.zsh zsh_aliases.zsh; do

@@ -56,6 +56,10 @@ and must not be committed.
 - Keep per-machine values in a separate file that the shared config
   `include`s, and gitignore that file. Current per-machine files:
   - `dot_config/niri/dms/outputs.kdl` — display layout (written by DMS)
+  - `dot_config/DankMaterialShell/plugin_settings.json` — DMS plugin config
+    (Home Assistant address, world clock cities). `install.sh` seeds it from
+    the committed `plugin_settings.example.json`; keep the example free of
+    personal values.
 - niri refuses to load a config whose `include` target is missing, so
   `install.sh` creates empty placeholders for gitignored include targets.
   Add any new one there too.
@@ -95,9 +99,10 @@ and for personal details such as home server URLs and locations.
   *working-tree* file, so it silently undoes a `git rm --cached <path>`. To
   untrack a file, commit from the index (plain `git commit` with only the
   intended changes staged) instead.
-- Nested git repos (e.g. a DMS plugin cloned into
-  `dot_config/DankMaterialShell/plugins/`) can't be committed as plain files;
-  decide between a proper submodule and ignoring them.
+- Third-party code cloned into the tree (e.g. DMS plugins under
+  `dot_config/DankMaterialShell/plugins/`) is added as a git submodule
+  (`git submodule add <url> <path>`), never as plain files. `install.sh` runs
+  `git submodule update --init`.
 
 ## Legacy
 

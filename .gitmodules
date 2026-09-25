@@ -1,0 +1,3 @@
+[submodule "dot_config/DankMaterialShell/plugins/homeAssistantMonitor"]
+	path = dot_config/DankMaterialShell/plugins/homeAssistantMonitor
+	url = https://github.com/xxyangyoulin/dms-plugin-hass
