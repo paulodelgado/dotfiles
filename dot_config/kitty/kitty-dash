@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+# Bound to Mod+T in niri.
+#
+# First press: start kitty, which brings up the dash session (startup_session).
+# Every press after that: open a plain one-off OS window inside that same kitty
+# process, so it costs almost nothing and stays out of the session.
+set -euo pipefail
+
+socket="unix:@kitty-dash"
+
+if kitten @ --to "$socket" ls >/dev/null 2>&1; then
+    exec kitten @ --to "$socket" launch --type=os-window --cwd="$HOME" >/dev/null
+fi
+
+exec kitty --listen-on "$socket"
