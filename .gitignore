@@ -15,3 +15,5 @@ dot_config/DankMaterialShell/zen.css
 dot_config/DankMaterialShell/.changelog-*
 dot_config/DankMaterialShell/.firstlaunch
 dot_config/DankMaterialShell/plugin_settings.json
+dot_config/nvim/colors/dms.lua
+dot_config/nvim/lua/lualine/themes/dms.lua

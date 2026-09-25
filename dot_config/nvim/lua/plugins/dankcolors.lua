@@ -1,6 +1,12 @@
+-- Matugen/DMS-generated base16 palette. Disabled in favour of the bru
+-- colorscheme (see lua/plugins/colorscheme.lua). Its config() applied
+-- highlights directly without setting vim.g.colors_name, so it silently
+-- overwrote whatever colorscheme LazyVim had just loaded.
+-- Set enabled = true to go back to matugen-following colours.
 return {
 	{
 		"RRethy/base16-nvim",
+		enabled = false,
 		priority = 1000,
 		config = function()
 			require('base16-colorscheme').setup({
