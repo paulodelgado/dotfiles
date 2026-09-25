@@ -5,8 +5,8 @@
 window-rule {
     match app-id="^music-assistant-companion$"
     open-floating true
-    default-column-width { fixed 1280; }
-    default-window-height { fixed 1080; }
+    default-column-width { fixed 560; }
+    default-window-height { fixed 1002; }
 }
 
 // @id=wr_1779079809301540102 @name=org.gnome.Calculator
