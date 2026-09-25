@@ -90,6 +90,11 @@ Home Assistant plugin reads `~/.home-assistant-token`, for example) and leave
 the inline field empty. Before committing, scan the staged diff for secrets
 and for personal details such as home server URLs and locations.
 
+A repo-wide scan must also cover the files inside submodules and other
+nested repos: `git ls-files` doesn't descend into them, and a stray
+credentials file once sat untracked inside `dot_tmux/plugins/tmux-powerline`
+unnoticed.
+
 ## Commits
 
 - One commit per tool or topic (herdr, niri + DMS, kitty, nvim, …); don't

@@ -1,3 +1,12 @@
 [submodule "dot_config/DankMaterialShell/plugins/homeAssistantMonitor"]
 	path = dot_config/DankMaterialShell/plugins/homeAssistantMonitor
 	url = https://github.com/xxyangyoulin/dms-plugin-hass
+[submodule "dot_tmux/plugins/tpm"]
+	path = dot_tmux/plugins/tpm
+	url = https://github.com/tmux-plugins/tpm
+[submodule "dot_tmux/plugins/tmux-sensible"]
+	path = dot_tmux/plugins/tmux-sensible
+	url = https://github.com/tmux-plugins/tmux-sensible
+[submodule "dot_tmux/plugins/tmux-powerline"]
+	path = dot_tmux/plugins/tmux-powerline
+	url = https://github.com/erikw/tmux-powerline
