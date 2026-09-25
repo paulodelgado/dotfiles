@@ -91,7 +91,10 @@ and for personal details such as home server URLs and locations.
 - One commit per tool or topic (herdr, niri + DMS, kitty, nvim, …); don't
   sweep unrelated changes into a commit.
 - Commit only the paths you mean to (`git commit -- <paths>`); other entries
-  may already be staged.
+  may already be staged. Careful: `git commit -- <path>` commits the
+  *working-tree* file, so it silently undoes a `git rm --cached <path>`. To
+  untrack a file, commit from the index (plain `git commit` with only the
+  intended changes staged) instead.
 - Nested git repos (e.g. a DMS plugin cloned into
   `dot_config/DankMaterialShell/plugins/`) can't be committed as plain files;
   decide between a proper submodule and ignoring them.
