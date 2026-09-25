@@ -1,0 +1,24 @@
+onboarding = false
+
+[ui]
+tab_bar_position = "bottom"
+status_indicators = "symbols"
+
+show_agent_labels_on_pane_borders = true
+[keys]
+prefix = "ctrl+a"
+# tmux habit: | splits side by side (keep the herdr default too)
+split_vertical = ["prefix+v", "prefix+|"]
+
+[theme]
+name = "terminal"
+auto_switch = false
+
+# tmux-powerline default look: dark bar (colour235), light text (colour255),
+# active tab drawn inverse. Tab bar uses panel_bg (bar), surface0/overlay1
+# (inactive tabs) and accent with panel_bg as text (active tab).
+[theme.custom]
+panel_bg = "#262626"
+surface0 = "#262626"
+overlay1 = "#eeeeee"
+accent = "#eeeeee"
